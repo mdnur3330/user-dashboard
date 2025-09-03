@@ -3,7 +3,7 @@ Frontend Dashboard – (Next.js + TypeScript)
 A responsive Dashboard application built for the Bitsec Frontend Developer take‑home. The app implements a user list with search, pagination, and user‑details view, plus smooth micro‑interactions using Framer Motion.
 
 Live Demo: 
-GitHub Repo: https://github.com/mdnur3330/user-dashboard
+GitHub Repo: https://user-dashboard-brown-xi.vercel.app/
 
 
 

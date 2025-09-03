@@ -1,9 +1,7 @@
-
 import React from "react";
 import { fetchUserById } from "@/lib";
 import Link from "next/link";
 import { FaArrowLeftLong } from "react-icons/fa6";
-import { motion } from "framer-motion";
 
 type Params = {
   userId: string;
@@ -14,74 +12,47 @@ const UserDetailsPage = async ({ params }: { params: Params }) => {
 
   if (!user) {
     return (
-      <motion.div
-        className="flex flex-col items-center justify-center min-h-screen"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.6 }}
-      >
-        <h2 className="text-2xl font-bold text-red-600">User not found</h2>
+      <div className="flex flex-col items-center justify-center min-h-screen p-4">
+        <h2 className="text-xl sm:text-2xl font-bold text-red-600 text-center">
+          User not found
+        </h2>
         <Link
           href="/userlist"
-          className="mt-4 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition"
+          className="mt-4 px-4 py-2 bg-teal-600 text-white rounded-lg hover:bg-teal-700 transition"
         >
           Back to Users
         </Link>
-      </motion.div>
+      </div>
     );
   }
 
   return (
-    <motion.div
-      className="min-h-screen bg-gray-50 p-6"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.7 }}
-    >
-      <motion.div
-        className="max-w-6xl mx-auto bg-white rounded-xl shadow-md p-6"
-        initial={{ opacity: 0, y: 40 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-      >
+    <div className="min-h-screen bg-gray-50 p-4 sm:p-6">
+      <div className="max-w-6xl mx-auto bg-white rounded-xl shadow-md mt-6 sm:mt-8 p-4 sm:p-6">
         {/* Back Button */}
-        <motion.div
-          initial={{ opacity: 0, x: -20 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ delay: 0.2 }}
-        >
+        <div>
           <Link
-            href="/users"
-            className="flex items-center gap-2 mb-6 px-4 py-2 text-gray-700 bg-gray-100 rounded-md hover:bg-gray-200 transition w-fit"
+            href="/"
+            className="flex items-center gap-2 mb-6 px-3 py-2 text-gray-700 bg-gray-100 rounded-md hover:bg-gray-200 transition w-fit"
           >
             <FaArrowLeftLong className="text-gray-600" />
-            <span>Back to Users</span>
+            <span className="text-sm sm:text-base">Back to Users</span>
           </Link>
-        </motion.div>
+        </div>
 
         {/* Header */}
-        <motion.h1
-          className="text-2xl md:text-3xl font-bold text-gray-900 mb-6 text-right"
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.3 }}
-        >
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900 mb-6 text-center md:text-right">
           User Details
-        </motion.h1>
+        </h1>
 
         {/* Personal Info & Address */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
           {/* Personal Information */}
-          <motion.div
-            className="bg-gray-50 p-6 rounded-lg"
-            initial={{ opacity: 0, x: -30 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.4 }}
-          >
+          <div className="bg-gray-50 p-4 sm:p-6 rounded-lg">
             <h2 className="text-lg font-bold text-gray-800 mb-4">
               Personal Information
             </h2>
-            <div className="space-y-3 text-sm md:text-base">
+            <div className="space-y-3 text-sm sm:text-base">
               <p>
                 <span className="block text-gray-600">Name</span>
                 <span className="font-medium text-gray-900">{user.name}</span>
@@ -104,23 +75,18 @@ const UserDetailsPage = async ({ params }: { params: Params }) => {
                   href={`https://${user.website}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-blue-600 hover:underline"
+                  className="text-teal-600 hover:underline break-all"
                 >
                   {user.website}
                 </a>
               </p>
             </div>
-          </motion.div>
+          </div>
 
           {/* Address */}
-          <motion.div
-            className="bg-gray-50 p-6 rounded-lg"
-            initial={{ opacity: 0, x: 30 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.5 }}
-          >
+          <div className="bg-gray-50 p-4 sm:p-6 rounded-lg">
             <h2 className="text-lg font-bold text-gray-800 mb-4">Address</h2>
-            <div className="space-y-3 text-sm md:text-base">
+            <div className="space-y-3 text-sm sm:text-base">
               <p>
                 <span className="block text-gray-600">Street</span>
                 <span className="font-medium text-gray-900">
@@ -147,23 +113,18 @@ const UserDetailsPage = async ({ params }: { params: Params }) => {
               </p>
               <p>
                 <span className="block text-gray-600">Geo Location</span>
-                <span className="font-medium text-gray-900">
+                <span className="font-medium text-gray-900 break-all">
                   {user.address.geo.lat}, {user.address.geo.lng}
                 </span>
               </p>
             </div>
-          </motion.div>
+          </div>
         </div>
 
         {/* Company Info */}
-        <motion.div
-          className="bg-gray-50 p-6 rounded-lg mt-6"
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.6 }}
-        >
+        <div className="bg-gray-50 p-4 sm:p-6 rounded-lg mt-6">
           <h2 className="text-lg font-bold text-gray-800 mb-4">Company</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm md:text-base">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 text-sm sm:text-base">
             <p>
               <span className="block text-gray-600">Company Name</span>
               <span className="font-medium text-gray-900">
@@ -178,12 +139,14 @@ const UserDetailsPage = async ({ params }: { params: Params }) => {
             </p>
             <p>
               <span className="block text-gray-600">Business</span>
-              <span className="font-medium text-gray-900">{user.company.bs}</span>
+              <span className="font-medium text-gray-900">
+                {user.company.bs}
+              </span>
             </p>
           </div>
-        </motion.div>
-      </motion.div>
-    </motion.div>
+        </div>
+      </div>
+    </div>
   );
 };
 

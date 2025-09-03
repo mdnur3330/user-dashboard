@@ -1,12 +1,12 @@
 import UserList from "@/component/AllUser";
-import { fetchUsers } from "@/lib";
+import { getServerSideProps } from "@/lib";
 import { User } from "@/type/Type";
 
 
-const Page = async () => {
-  const users: User[] = await fetchUsers();
+const Home = async () => {
+  const users: User[] = await getServerSideProps();
  
   return <UserList users={users} />;
 };
 
-export default Page;
+export default Home;

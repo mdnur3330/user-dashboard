@@ -44,7 +44,7 @@ const UserList = ({ users = [] }: Props) => {
   return (
     <div className="min-h-screen bg-gray-100 p-4 sm:p-6">
       <motion.div
-        className="max-w-6xl mx-auto bg-white rounded-xl shadow-md p-4 sm:p-6"
+        className="w-11/12 lg:max-w-9/12 mt-5 lg:mt-9 mx-auto bg-white rounded-xl shadow-md p-4 sm:p-6"
         initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
@@ -102,7 +102,7 @@ const UserList = ({ users = [] }: Props) => {
                   >
                     <td className="py-3 px-4">
                       <Link
-                        href={`userlist/${user.id}`}
+                        href={`/userlist/${user.id}`}
                         className="block w-full"
                       >
                         <div>
@@ -112,13 +112,13 @@ const UserList = ({ users = [] }: Props) => {
                       </Link>
                     </td>
                     <td className="py-3 px-4 text-gray-700">
-                      <Link href={`userlist/${user.id}`}>{user.email}</Link>
+                      <Link href={`/userlist/${user.id}`}>{user.email}</Link>
                     </td>
-                    <td className="py-3 px-4 text-gray-700 hidden md:table-cell">
-                      <Link href={`userlist/${user.id}`}>{user.phone}</Link>
+                    <td className="py-3 px-4 text-gray-700 table-cell">
+                      <Link href={`/userlist/${user.id}`}>{user.phone}</Link>
                     </td>
-                    <td className="py-3 px-4 text-gray-700 hidden sm:table-cell">
-                      <Link href={`userlist/${user.id}`}>{user.company.name}</Link>
+                    <td className="py-3 px-4 text-gray-700 table-cell">
+                      <Link href={`/userlist/${user.id}`}>{user.company.name}</Link>
                     </td>
                   </motion.tr>
                 ))

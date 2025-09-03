@@ -42,9 +42,9 @@ const UserList = ({ users = [] }: Props) => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-100 p-4 sm:p-6">
+    <div className="min-h-screen bg-gray-100 p-4 **:p-6">
       <motion.div
-        className="w-11/12 lg:max-w-9/12 mt-5 lg:mt-9 mx-auto bg-white rounded-xl shadow-md p-4 sm:p-6"
+        className="w-11/12 lg:max-w-9/12 mt-2 lg:mt-5 mx-auto bg-white rounded-xl shadow-md p-4 sm:p-6"
         initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
